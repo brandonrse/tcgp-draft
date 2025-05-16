@@ -3,6 +3,7 @@ const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
+import { fileURLToPath } from 'url';
 
 const app = express();
 const server = http.createServer(app);
@@ -15,8 +16,13 @@ const io = new Server(server, {
   },
 });
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, '../tcgp-draft-frontend/dist');
+
 const rateLimit = new Map();
 
+app.use (express.static(distPath));
 app.use(cors());
 app.use(express.json());
 
@@ -37,6 +43,9 @@ function shuffle(array) {
   return array;
 }
 
+app.get('*', (req,res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 
 // API to create a new room
 app.post('/host', (req, res) => {
@@ -124,7 +133,7 @@ io.on('connection', (socket) => {
       return;
     }
     rateLimit.set(socket.id, now);
-    
+
     console.log(`${username} is attempting to join room: ${roomId}`);
     const room = rooms[roomId];
 
@@ -426,7 +435,8 @@ setInterval(() => {
   }
 }, 60 * 60 * 1000); // Run every hour
 
+const PORT = process.env.PORT || 3001;
 // Start the server
-server.listen(3001, () => {
-  console.log('Server is running on http://localhost:3001');
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
