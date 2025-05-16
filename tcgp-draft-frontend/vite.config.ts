@@ -8,6 +8,7 @@ export default defineConfig({
     proxy: {
       '/host': 'http://localhost:3001',
       '/join': 'http://localhost:3001',
+      '/rooms': 'http://localhost:3001'
     },
   },
   base: process.env.VITE_BASE_PATH || "/"
