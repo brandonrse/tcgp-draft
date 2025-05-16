@@ -10,5 +10,5 @@ export default defineConfig({
       '/join': 'http://localhost:3001',
     },
   },
-  base: process.env.VITE_BASE_PATH || "/tcgp-draft/"
+  base: process.env.VITE_BASE_PATH || "/"
 })

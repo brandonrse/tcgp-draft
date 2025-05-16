@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './JoinDraft.css';
 import Modal from '../components/Modal';
-import { apiFetch } from '../assets/api';
+import { apiFetch } from '../api';
 
 interface Room {
   roomId: string;

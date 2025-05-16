@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './HostDraft.css';
 import { useNavigate } from 'react-router-dom';
-import { apiFetch } from '../assets/api';
+import { apiFetch } from '../api';
 
 const HostDraft: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -36,7 +36,6 @@ const HostDraft: React.FC = () => {
 
       setSubmitted(true);
       setRoomId(data.roomId);
-      console.log('Room hosted:', data);
       navigate(`/room/${data.roomId}`, {state: {username}});
     } catch (error) {
       console.error('Error creating room:', error);
