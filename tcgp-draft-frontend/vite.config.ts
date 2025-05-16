@@ -9,5 +9,6 @@ export default defineConfig({
       '/host': 'http://localhost:3001',
       '/join': 'http://localhost:3001',
     },
-  }
+  },
+  base: process.env.VITE_BASE_PATH || "/tcgp-draft"
 })
