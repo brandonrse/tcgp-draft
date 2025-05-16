@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './HostDraft.css';
 import { useNavigate } from 'react-router-dom';
+import { apiFetch } from '../assets/api';
 
 const HostDraft: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -19,7 +20,7 @@ const HostDraft: React.FC = () => {
     }
 
     try {
-      const response = await fetch('/host', {
+      const response = await apiFetch('/host', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './JoinDraft.css';
 import Modal from '../components/Modal';
+import { apiFetch } from '../assets/api';
 
 interface Room {
   roomId: string;
@@ -24,7 +25,7 @@ const JoinDraft: React.FC = () => {
 
   const fetchRooms = async () => {
     try {
-      const response = await fetch('http://localhost:3001/rooms');
+      const response = await apiFetch('/rooms');
       const data = await response.json();
       setRooms(data);
       setError(null);
@@ -51,7 +52,7 @@ const JoinDraft: React.FC = () => {
     setIsJoining(true);
 
     try {
-      const response = await fetch('/join', {
+      const response = await apiFetch('/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, roomId: selectedRoom.roomId, roomPassword }),
