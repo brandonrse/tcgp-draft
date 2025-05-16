@@ -3,7 +3,7 @@ const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
-import { fileURLToPath } from 'url';
+const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
@@ -16,11 +16,10 @@ const io = new Server(server, {
   },
 });
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const distPath = path.join(__dirname, '../tcgp-draft-frontend/dist');
 
 const rateLimit = new Map();
+const SECRET_KEY = process.env.JWT_SECRET
 
 app.use (express.static(distPath));
 app.use(cors());
@@ -43,7 +42,7 @@ function shuffle(array) {
   return array;
 }
 
-app.get('*', (req,res) => {
+app.get(/(.*)/, (req,res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
@@ -115,11 +114,21 @@ app.get('/rooms', (req, res) => {
 
 io.use((socket, next) => {
   const token = socket.handshake.auth.token;
-  if (!isValidToken(token)) {
+  const decoded = isValidToken(token);
+  if (!decoded) {
     return next(new Error('Unauthorized'));
   }
   next();
 });
+
+function isValidToken(token) {
+  try {
+    const decoded = jwt.verify(token, SECRET_KEY);
+    return decoded;
+  } catch (err) {
+    return false;
+  }
+}
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
