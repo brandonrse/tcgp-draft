@@ -11,7 +11,7 @@ const io = new Server(server, {
   maxHttpBufferSize: 1e6,
   allowEIO3: false,
   cors: {
-    origin: '*', // Replace with frontend URL
+    origin: 'https://tcgp-draft-client.onrender.com', // Replace with frontend URL
     methods: ['GET', 'POST'],
   },
 });
