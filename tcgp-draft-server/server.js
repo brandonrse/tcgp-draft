@@ -42,9 +42,6 @@ function shuffle(array) {
   return array;
 }
 
-app.get(/(.*)/, (req,res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
-});
 
 // API to create a new room
 app.post('/host', (req, res) => {
@@ -101,7 +98,6 @@ app.post('/join', (req, res) => {
   }
 });
 
-// API to get a list of all rooms
 app.get('/rooms', (req, res) => {
   const roomList = Object.values(rooms).map(({ roomId, host, players, draftState }) => ({
     roomId,
@@ -165,8 +161,6 @@ io.on('connection', (socket) => {
       // Join the socket to the room
       socket.join(roomId);
 
-      console.log('stringify join', JSON.stringify(room.players));
-
       // Notify all clients in the room about the updated players list
       io.to(roomId).emit('update-players', room.players);
     } else {
@@ -178,8 +172,6 @@ io.on('connection', (socket) => {
 
   socket.on('start-draft', (roomId, cardPool) => {
     const room = rooms[roomId];
-    console.log('stringify rooms', JSON.stringify(room));
-    console.log('stringify players', JSON.stringify(room.players));
     if (!room) {
       console.error(`Room ${roomId} not found`);
       socket.emit('redirect-home');
@@ -407,6 +399,11 @@ io.on('connection', (socket) => {
 //       console.error(`Room ${roomId} not found`);
 //     }
 //   });
+
+
+app.get(/(.*)/, (req,res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 
 // Generate player packs for the draft
 function generatePlayerPacks(cardPool, players) {
