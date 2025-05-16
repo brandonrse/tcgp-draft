@@ -1,0 +1,714 @@
+[
+  {
+    "pack": "Genetic Apex",
+    "type": "normal",
+    "subpack": "Charizard",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Genetic Apex",
+    "type": "rare",
+    "subpack": "Charizard",
+    "cardOne": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardTwo": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardThree": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardFour": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardFive": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ]
+  },
+  {
+    "pack": "Genetic Apex",
+    "type": "normal",
+    "subpack": "Pikachu",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Genetic Apex",
+    "type": "rare",
+    "subpack": "Pikachu",
+    "cardOne": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardTwo": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardThree": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardFour": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardFive": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ]
+  },
+  {
+    "pack": "Genetic Apex",
+    "type": "normal",
+    "subpack": "Mewtwo",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Genetic Apex",
+    "type": "rare",
+    "subpack": "Mewtwo",
+    "cardOne": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardTwo": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardThree": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardFour": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ],
+    "cardFive": [
+      {"crown": 5},
+      {"immersive":5},
+      {"super": 50},
+      {"art": 40}
+    ]
+  },
+  {
+    "pack": "Mythical Island",
+    "type": "normal",
+    "subpack": "Mew",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Mythical Island",
+    "type": "rare",
+    "subpack": "Mew",
+    "cardOne": [
+      {"crown": 5.555},
+      {"immersive":5.555},
+      {"super": 55.555},
+      {"art": 33.333}
+    ],
+    "cardTwo": [
+      {"crown": 5.555},
+      {"immersive":5.555},
+      {"super": 55.555},
+      {"art": 33.333}
+    ],
+    "cardThree": [
+      {"crown": 5.555},
+      {"immersive":5.555},
+      {"super": 55.555},
+      {"art": 33.333}
+    ],
+    "cardFour": [
+      {"crown": 5.555},
+      {"immersive":5.555},
+      {"super": 55.555},
+      {"art": 33.333}
+    ],
+    "cardFive": [
+      {"crown": 5.555},
+      {"immersive":5.555},
+      {"super": 55.555},
+      {"art": 33.333}
+    ]
+  },
+  {
+    "pack": "Space-Time Smackdown",
+    "type": "normal",
+    "subpack": "Dialga",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Space-Time Smackdown",
+    "type": "rare",
+    "subpack": "Dialga",
+    "cardOne": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardTwo": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardThree": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardFour": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardFive": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ]
+  },
+  {
+    "pack": "Space-Time Smackdown",
+    "type": "normal",
+    "subpack": "Palkia",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Space-Time Smackdown",
+    "type": "rare",
+    "subpack": "Palkia",
+    "cardOne": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardTwo": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardThree": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardFour": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ],
+    "cardFive": [
+      {"crown": 3.846},
+      {"immersive":3.846},
+      {"super": 46.153},
+      {"art": 46.153}
+    ]
+  },
+  {
+    "pack": "Triumphant Light",
+    "type": "normal",
+    "subpack": "Arceus",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 5},
+      {"uncommon": 90}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 20},
+      {"uncommon":60}
+    ]
+  },
+  {
+    "pack": "Triumphant Light",
+    "type": "rare",
+    "subpack": "Arceus",
+    "cardOne": [
+      {"crown": 4.761},
+      {"immersive":4.761},
+      {"super": 61.904},
+      {"art": 28.571}
+    ],
+    "cardTwo": [
+      {"crown": 4.761},
+      {"immersive":4.761},
+      {"super": 61.904},
+      {"art": 28.571}
+    ],
+    "cardThree": [
+      {"crown": 4.761},
+      {"immersive":4.761},
+      {"super": 61.904},
+      {"art": 28.571}
+    ],
+    "cardFour": [
+      {"crown": 4.761},
+      {"immersive":4.761},
+      {"super": 61.904},
+      {"art": 28.571}
+    ],
+    "cardFive": [
+      {"crown": 4.761},
+      {"immersive":4.761},
+      {"super": 61.904},
+      {"art": 28.571}
+    ]
+  },
+  {
+    "pack": "Shining Revelry",
+    "type": "normal",
+    "subpack": "",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"shiny super rare": 0.333},
+      {"shiny": 0.714},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 4.952},
+      {"uncommon": 89}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"shiny super rare":1.333},
+      {"shiny": 2.857},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 19.810},
+      {"uncommon":56}
+    ]
+  },
+  {
+    "pack": "Shining Revelry",
+    "type": "rare",
+    "subpack": "",
+    "cardOne": [
+      {"crown": 2.564},
+      {"shiny super rare":10.256},
+      {"shiny":25.641},
+      {"immersive":2.564},
+      {"super": 43.589},
+      {"art": 15.384}
+    ],
+    "cardTwo": [
+      {"crown": 2.564},
+      {"shiny super rare":10.256},
+      {"shiny":25.641},
+      {"immersive":2.564},
+      {"super": 43.589},
+      {"art": 15.384}
+    ],
+    "cardThree": [
+      {"crown": 2.564},
+      {"shiny super rare":10.256},
+      {"shiny":25.641},
+      {"immersive":2.564},
+      {"super": 43.589},
+      {"art": 15.384}
+    ],
+    "cardFour": [
+      {"crown": 2.564},
+      {"shiny super rare":10.256},
+      {"shiny":25.641},
+      {"immersive":2.564},
+      {"super": 43.589},
+      {"art": 15.384}
+    ],
+    "cardFive": [
+      {"crown": 2.564},
+      {"shiny super rare":10.256},
+      {"shiny":25.641},
+      {"immersive":2.564},
+      {"super": 43.589},
+      {"art": 15.384}
+    ]
+  },
+   {
+    "pack": "Celestial Guardians",
+    "type": "normal",
+    "subpack": "Solgaleo",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"shiny super rare": 0.333},
+      {"shiny": 0.714},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 4.952},
+      {"uncommon": 89}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"shiny super rare":1.333},
+      {"shiny": 2.857},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 19.810},
+      {"uncommon":56}
+    ]
+  },
+  {
+    "pack": "Celestial Guardians",
+    "type": "rare",
+    "subpack": "Solgaleo",
+    "cardOne": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardTwo": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardThree": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardFour": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardFive": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ]
+  },
+   {
+    "pack": "Celestial Guardians",
+    "type": "normal",
+    "subpack": "Lunala",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"shiny super rare": 0.333},
+      {"shiny": 0.714},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 4.952},
+      {"uncommon": 89}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"shiny super rare":1.333},
+      {"shiny": 2.857},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 19.810},
+      {"uncommon":56}
+    ]
+  },
+  {
+    "pack": "Celestial Guardians",
+    "type": "rare",
+    "subpack": "Lunala",
+    "cardOne": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardTwo": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardThree": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardFour": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ],
+    "cardFive": [
+      {"crown": 2.380},
+      {"shiny super rare":9.523},
+      {"shiny":23.809},
+      {"immersive":2.380},
+      {"super": 33.333},
+      {"art": 28.571}
+    ]
+  }
+]

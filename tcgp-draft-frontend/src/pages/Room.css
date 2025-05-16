@@ -1,0 +1,70 @@
+.room-container {
+  text-align: center;
+  display: flex; 
+  height: 100vh; 
+}
+
+.room-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.room-container li {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.copy-button {
+  margin-left: 1rem;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}
+
+.copy-button:active {
+  transform: scale(0.98);
+}
+
+.settings-panel {
+  width: 250px; 
+  background-color: #363636; 
+  border-right: 1px solid #ccc;
+  padding: 16px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+  overflow-y: auto; 
+  text-align: left;
+}
+
+.main-content {
+  flex: 1; 
+  padding-top: 60px;
+  overflow-y: auto; 
+}
+
+.expansion-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.expansion-logo {
+  width: 25px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.expansion-logo.grayscale {
+  filter: grayscale(100%);
+}

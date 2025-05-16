@@ -1,0 +1,184 @@
+.draft-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.player-container {
+  background-color: #363636;
+  border-top: 1px solid #ccc;
+  padding: 16px;
+  flex-shrink: 0; 
+  list-style-type: none;
+}
+
+.pack-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+@media (max-width: 1280px) {
+  .draft-container {
+    overflow-x: auto;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+.player-container ul {
+  padding: 0;
+}
+
+.card-container {
+  flex: 1; 
+  padding: 36px 16px; 
+  overflow-y: auto; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: fit-content;
+}
+
+.card {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 10px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+  z-index: 1;
+}
+
+.deck-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc; 
+}
+.deck-card {
+  transition: transform 0.2s;
+  width: 50px;
+  height: auto;
+}
+
+@keyframes move-to-deck {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0.5); 
+    opacity: 0; 
+  }
+}
+
+.card.animate-to-deck {
+  animation: move-to-deck 0.5s ease-in-out forwards; 
+}
+
+.sort-button-container {
+  margin-bottom: 10px; 
+  text-align: center; 
+}
+
+.sort-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.sort-button:hover {
+  background-color: #0056b3;
+}
+
+.deck-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.hovered-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none; 
+}
+
+.hovered-card img {
+  width: 300px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* border: 2px solid #ccc; */
+  border-radius: 8px;
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.header {
+  text-align: center;
+}
+
+.deck-stats p {
+  margin: 0;
+  text-align: left;
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-10px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+@keyframes fly-in-left {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fly-out-right {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.card.enter {
+  animation: fly-in-left 0.6s ease-out;
+}
+
+.card.exit {
+  animation: fly-out-right 0.6s ease-in;
+}
