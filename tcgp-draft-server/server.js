@@ -17,9 +17,10 @@ const io = new Server(server, {
 });
 
 const rateLimit = new Map();
+const distPath = path.join(__dirname, 'dist');
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(distPath));
 app.use(express.json());
 
 
