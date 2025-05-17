@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
 // Initialize the socket connection globally
-const socket = io('https://tcgp-draft-backend.onrender.com'); // Replace with server URL
+const socket = io('http://localhost:3001'); // Replace with server URL
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

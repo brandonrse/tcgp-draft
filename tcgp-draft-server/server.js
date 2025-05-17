@@ -108,28 +108,27 @@ app.get('/rooms', (req, res) => {
   res.json(roomList);
 });
 
-io.use((socket, next) => {
-  const token = socket.handshake.auth.token;
-  const decoded = isValidToken(token);
-  if (!decoded) {
-    return next(new Error('Unauthorized'));
-  }
-  next();
-});
+// io.use((socket, next) => {
+//   const token = socket.handshake.auth.token;
+//   const decoded = isValidToken(token);
+//   if (!decoded) {
+//     return next(new Error('Unauthorized'));
+//   }
+//   next();
+// });
 
-function isValidToken(token) {
-  try {
-    const decoded = jwt.verify(token, SECRET_KEY);
-    return decoded;
-  } catch (err) {
-    return false;
-  }
-}
+// function isValidToken(token) {
+//   try {
+//     const decoded = jwt.verify(token, SECRET_KEY);
+//     return decoded;
+//   } catch (err) {
+//     return false;
+//   }
+// }
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
-
   // Handle joining a room
   socket.on('join-room', (roomId, username) => {
     const now = Date.now();
