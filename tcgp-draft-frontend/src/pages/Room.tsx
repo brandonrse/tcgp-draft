@@ -78,7 +78,9 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
 
   useEffect(() => {
     console.log('room entered');
+    console.log('socket', socket);
     if (!hasJoinedRef.current) {
+      console.log('join room i guess');
       socket.emit('join-room', roomId, username);
       hasJoinedRef.current = true;
     }
@@ -97,7 +99,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
     });
 
     socket.on('draft-error', (message) => {
-      console.log(message);
+      console.log('error', message);
     })
 
     return () => {

@@ -1,6 +1,6 @@
-const API_BASE = process.env.VITE_API_URL || '';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export function apiFetch(path: string, options?: RequestInit) {
-  console.log(API_BASE);
+  console.log('api fetch', path);
   return fetch(`${API_BASE}${path}`, options);
 }

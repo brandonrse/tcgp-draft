@@ -16,14 +16,12 @@ const io = new Server(server, {
   },
 });
 
-const distPath = path.join(__dirname, '../tcgp-draft-frontend/dist');
-
 const rateLimit = new Map();
-const SECRET_KEY = process.env.JWT_SECRET
 
-app.use (express.static(distPath));
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.json());
+
 
 // In-memory storage for rooms and players
 const rooms = {};
@@ -45,6 +43,7 @@ function shuffle(array) {
 
 // API to create a new room
 app.post('/host', (req, res) => {
+  console.log('host');
   const { username, roomPassword } = req.body;
 
   const roomId = uuidv4();
@@ -66,6 +65,7 @@ app.post('/join', (req, res) => {
   const { username, roomId, roomPassword } = req.body;
 
   const room = rooms[roomId];
+  console.log('room', JSON.stringify(room));
   if (!room) {
     return res.status(404).json({ error: 'Room not found' });
   }
@@ -107,24 +107,6 @@ app.get('/rooms', (req, res) => {
   }));
   res.json(roomList);
 });
-
-// io.use((socket, next) => {
-//   const token = socket.handshake.auth.token;
-//   const decoded = isValidToken(token);
-//   if (!decoded) {
-//     return next(new Error('Unauthorized'));
-//   }
-//   next();
-// });
-
-// function isValidToken(token) {
-//   try {
-//     const decoded = jwt.verify(token, SECRET_KEY);
-//     return decoded;
-//   } catch (err) {
-//     return false;
-//   }
-// }
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
