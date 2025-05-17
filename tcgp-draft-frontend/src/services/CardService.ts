@@ -91,11 +91,15 @@ export const getCardsWithoutTag = (cards: Card[], tag: string): Card[] =>
   cards.filter((card) => !card.tags.includes(tag));
 
 
-export const getAllPacks = (cards: Card[]): string[] =>
+export const getAllPackNames = (cards: Card[]): string[] =>
   Array.from(new Set(cards.map((card) => card.pack)));
 
 export const getPackCode = (packName: string): string => {
   return PACKS[packName] ?? 'Unknown';
+}
+
+export const getAllPacks = (): Record<string, string> => {
+  return PACKS;
 }
 
 export const getPackByCode = (packCode: string): string | undefined => {

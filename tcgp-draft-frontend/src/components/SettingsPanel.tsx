@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCardData } from '../hooks/useCardData';
 import './SettingsPanel.css';
+import { getAllPacks } from '../services/CardService';
 
 interface Settings {
   timerEnabled: boolean;
@@ -18,14 +19,15 @@ interface SettingsPanelProps {
 
 const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, updateAllowedExpansions }) => {
   const { cards, loading } = useCardData();
-  const imageModules = import.meta.glob('../assets/images/expansions/*{png,jpg,jpeg,webp}', {
-    eager: true,
-    import: 'default',
-  }) as Record<string, string>;
-  const imageUrls: string[] = Object.values(imageModules);
-  const packIds: string[] = imageUrls
-    .map(m => m.split('/')[5].split('_')[0])
-    .filter((id): id is string => id !== undefined);
+  // const imageModules = import.meta.glob('../assets/images/expansions/*{png,jpg,jpeg,webp}', {
+  //   eager: true,
+  //   import: 'default',
+  // }) as Record<string, string>;
+  const PACKS = getAllPacks();
+  // const imageUrls: string[] = Object.values(imageModules);
+  // const packIds: string[] = imageUrls
+  //   .map(m => m.split('/')[5].split('_')[0])
+  //   .filter((id): id is string => id !== undefined);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -96,7 +98,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
           <label>
             Include Expansions:<br />
             <div className="expansion-logos">
-              {packIds.map((id, idx) => (
+              {/* {packIds.map((id, idx) => (
                 <img
                   key={idx}
                   src={imageUrls[idx]}
@@ -106,7 +108,11 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
                   }`}
                   onClick={() => handleExpansionClick(id)}
                 />
-              ))}
+              ))} */
+              Object.entries(PACKS).map(([packName, fileName]) => (
+                <img key={packName} src={`/assets/images/expansions/${fileName}_Set_Logo_EN.png`} alt={packName} title={packName} className={`expansion-logo ${settings.allowedExpansions.includes(fileName) ? '' : 'grayscale'}`} onClick={() => handleExpansionClick(fileName)}/>
+              ))
+              }
             </div>
           </label>
         </li>
