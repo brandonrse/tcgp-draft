@@ -13,7 +13,7 @@ const HostDraft: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log('submitted host');
     if (!username.trim() || !roomPassword.trim()) {
       alert('Please fill out both fields.');
       return;
@@ -28,6 +28,7 @@ const HostDraft: React.FC = () => {
         body: JSON.stringify({ username, roomPassword }),
       });
       const data = await response.json();
+      console.log('data', data);
 
       if (!response.ok) {
         alert(data.error || 'Something went wrong.');

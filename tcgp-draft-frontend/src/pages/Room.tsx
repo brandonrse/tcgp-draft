@@ -77,6 +77,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
 
 
   useEffect(() => {
+    console.log('room entered');
     if (!hasJoinedRef.current) {
       socket.emit('join-room', roomId, username);
       hasJoinedRef.current = true;
