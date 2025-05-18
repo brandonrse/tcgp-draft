@@ -7,7 +7,7 @@ import { io } from 'socket.io-client';
 
 // Initialize the socket connection globally
 const socket = io('https://tcgp-draft-backend.onrender.com'); // Replace with server URL
-console.log('socket', socket);
+// console.log('socket', socket);
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>

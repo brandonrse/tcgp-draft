@@ -8,12 +8,14 @@ const HostDraft: React.FC = () => {
   const [roomPassword, setRoomPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [roomId, setRoomId] = useState<string | null>(null);
+  const [isHosting, setIsHosting] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('submitted host');
+    // console.log('submitted host');
+    setIsHosting(true);
     if (!username.trim() || !roomPassword.trim()) {
       alert('Please fill out both fields.');
       return;
@@ -28,10 +30,11 @@ const HostDraft: React.FC = () => {
         body: JSON.stringify({ username, roomPassword }),
       });
       const data = await response.json();
-      console.log('data', data);
+      // console.log('data', data);
 
       if (!response.ok) {
         alert(data.error || 'Something went wrong.');
+        setIsHosting(false);
         return;
       }
 
@@ -40,7 +43,10 @@ const HostDraft: React.FC = () => {
       navigate(`/room/${data.roomId}`, {state: {username}});
     } catch (error) {
       console.error('Error creating room:', error);
+      setIsHosting(false);
       alert('Could not connect to the server.');
+    } finally {
+      setIsHosting(false);
     }
   };
 
@@ -70,7 +76,7 @@ const HostDraft: React.FC = () => {
             />
           </label>
 
-          <button type="submit">Create Room</button>
+          <button type="submit" disabled={isHosting}>Create Room</button>
         </form>
       ) : (
         <div>
