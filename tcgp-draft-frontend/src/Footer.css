@@ -5,5 +5,5 @@
   background-color: #004687;
   color:white;
   text-align: left;
-  min-width: 100vw;
+  position: fixed;
 }

@@ -36,8 +36,8 @@ function App({ socket }: AppProps) {
             <Route path="/join" element={<JoinDraft />} />
             <Route path="/room/:roomId" element={<Room socket={socket} />} />
           </Routes>
-          <Footer />
         </div>
+        <Footer />
 
       </CardDataProvider>
   );
