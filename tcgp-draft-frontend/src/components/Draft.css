@@ -96,14 +96,17 @@ li {
 .sort-button {
   display: inline-block;
   padding: 8px 12px;
-  background-color: #007bff;
+  /* background-color: #007bff; */
+  background-color: #171515;
+  min-width: 70px;
+  font-size: larger;
   color: white;
   border: none;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   cursor: pointer;
-  font-size: 14px;
   transition: background-color 0.2s ease;
   width: fit-content;
+  border-radius: 10px 10px 0 0;
 }
 
 .sort-button:hover {
@@ -116,6 +119,11 @@ li {
   gap: 5px;
   width: 51%;
   margin: auto;
+  background-color: #171515;
+  padding: 20px;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .hovered-card {
@@ -186,8 +194,11 @@ li {
 }
 
 .deck-stats {
-  margin-top: 10px;
   font-size: 0.95rem;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .deck-stats p {
@@ -197,19 +208,22 @@ li {
 
 .stat-group {
   margin-bottom: 14px;
+  padding-right: 10px;
+}
+
+.stat-group:nth-child(1) {
+  border-right: 1px solid #ccc;
 }
 
 .stat-bar-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   margin-top: 6px;
   margin-bottom: 30px;
 }
 
 .stat-bar {
-  flex: 1 1 150px; 
+  max-width: 200px;
   min-width: 120px;
+  margin-bottom: 10px;
 }
 
 .bar-label {
@@ -228,4 +242,20 @@ li {
   height: 100%;
   background-color: #4caf50;
   transition: width 0.3s;
+}
+
+.deck-label {
+  margin: 0 0 0 25%;
+  background-color: #171515;
+  width: fit-content;
+  padding: 0 10px;
+  border-radius: 10px 10px 0 0;
+  font-size: larger;
+  align-content: center;
+  min-width: 60px;
+}
+
+.deck-header {
+  display: flex;
+  gap: 10px;
 }

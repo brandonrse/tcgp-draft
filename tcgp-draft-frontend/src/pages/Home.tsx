@@ -52,7 +52,7 @@ const Home: React.FC = () => {
                 <td>Issues:</td>
                 <td>
                   <li>
-                    <ul>Pikachu can appear without a Raichu in the pool</ul>
+                    <ul>Pikachu can appear without a Raichu in the pool. Vice versa, Raichu can appear without a non-ex Pikachu.</ul>
                   </li>
                 </td>
               </tr>
@@ -61,6 +61,7 @@ const Home: React.FC = () => {
         </div>
       <div className='credits-container'>
         <h3>Credits</h3>
+        <p>Made in 2025 by Brandon R.</p>
         <p><a href='https://brewedfiction.tumblr.com/'>BrewedFiction</a> for proof-reading.</p>
         <p><a href='https://pocket.limitlesstcg.com'>pocket.limitlesstcg.com</a> for card data.</p>
       </div>

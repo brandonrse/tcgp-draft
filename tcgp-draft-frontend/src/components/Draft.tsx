@@ -140,9 +140,9 @@ const Draft: React.FC<DraftProps> = ({
           ))}
         </ul>
         <div className="deck-container">
-
+          
+          <p>Cards: {playerDecks[players[0]?.id]?.length}/30</p>
           <div className='deck-stats'>
-            <p>Cards: {playerDecks[players[0]?.id]?.length}/30</p>
           
             <div className='stat-group'>
               <strong>Pokémon: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokemon').length}</strong>
@@ -163,20 +163,27 @@ const Draft: React.FC<DraftProps> = ({
               </div>
             </div>
           </div>          
-          <button className="sort-button" onClick={() => sortDeck(players[0]?.id)}>
-            Sort Deck
-          </button>
-          <div className="deck-cards">
-            {playerDecks[players[0]?.id]?.map((card, index) => (
-              <img
-                key={`${card.cardNum}-${index}`}
-                src={getCardImageUrl(card, 'EN')}
-                alt={card.cardName}
-                className="deck-card"
-                onMouseEnter={() => setHoveredCard(card)}
-                onMouseLeave={() => setHoveredCard(null)}
-              />
-            ))}
+
+          <div className='deck'>
+            <div className='deck-header'>
+              <p className='deck-label'>Deck</p> 
+              <button className="sort-button" onClick={() => sortDeck(players[0]?.id)}>
+              Sort Deck
+              </button>
+            </div>
+
+            <div className="deck-cards">
+              {playerDecks[players[0]?.id]?.map((card, index) => (
+                <img
+                  key={`${card.cardNum}-${index}`}
+                  src={getCardImageUrl(card, 'EN')}
+                  alt={card.cardName}
+                  className="deck-card"
+                  onMouseEnter={() => setHoveredCard(card)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

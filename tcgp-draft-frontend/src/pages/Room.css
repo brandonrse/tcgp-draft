@@ -68,3 +68,7 @@
 .expansion-logo.grayscale {
   filter: grayscale(100%);
 }
+
+.room-info {
+  margin-left: 10px;
+}

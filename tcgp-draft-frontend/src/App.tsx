@@ -7,7 +7,6 @@ import JoinDraft from './pages/JoinDraft';
 import Room from './pages/Room';
 import Navbar from './Navbar';
 import { CardDataProvider } from './context/CardDataContext';
-import Footer from './Footer';
 
 interface AppProps {
   socket: import("socket.io-client").Socket; 
@@ -37,7 +36,6 @@ function App({ socket }: AppProps) {
             <Route path="/room/:roomId" element={<Room socket={socket} />} />
           </Routes>
         </div>
-        <Footer />
 
       </CardDataProvider>
   );
