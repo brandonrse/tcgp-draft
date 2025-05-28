@@ -315,8 +315,8 @@ io.on('connection', (socket) => {
         // Notify other players in the room
         io.to(roomId).emit('update-players', room.players);
 
-        // If the room is empty, delete it
-        if (room.players.length === 0) {
+        // If the room is empty or undefined, delete it
+        if (!room.players?.length) {
           console.log(`Room ${roomId} is empty and will be deleted.`);
           delete rooms[roomId];
         }
