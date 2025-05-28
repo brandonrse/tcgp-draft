@@ -335,7 +335,7 @@ io.on('connection', (socket) => {
       room.players = room.players.filter(p => p.id !== socket.id);
       socket.leave(room.id);
     }
-    if (room.players.length === 0) {
+    if (!room.players?.length) {
       console.log(`Room ${roomId} is empty. Starting deletion timer.`);
       setTimeout(() => {
         // Check if the room is still empty before deleting
@@ -416,7 +416,7 @@ setInterval(() => {
 
   for (const roomId in rooms) {
     const room = rooms[roomId];
-    if (now - room.createdAt > twelveHours && room.players.length === 0) {
+    if (now - room.createdAt > twelveHours && !room.players?.length) {
       console.log(`Deleting room ${roomId} due to expiration.`);
       delete rooms[roomId];
     }
