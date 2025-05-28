@@ -16,6 +16,28 @@ const io = new Server(server, {
   },
 });
 
+const basePath = path.join(__dirname, '..');
+console.log('Base path:', basePath);
+
+fs.readdir(basePath, (err, files) => {
+  if (err) {
+    console.error('Error reading base path:', err);
+  } else {
+    console.log('Files and folders in base path:', files);
+  }
+});
+
+const frontendPath = path.join(__dirname, '..', 'tcgp-draft-frontend');
+fs.readdir(frontendPath, (err, files) => {
+  if (err) {
+    console.error('Error reading frontend path:', err);
+  } else {
+    console.log('Frontend folder contents:', files);
+  }
+});
+
+console.log('Working directory:', process.cwd());
+
 const rateLimit = new Map();
 const distPath = path.join(__dirname, '..', 'tcgp-draft-frontend', 'dist');
 
