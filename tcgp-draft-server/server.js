@@ -17,7 +17,7 @@ const io = new Server(server, {
 });
 
 const rateLimit = new Map();
-const distPath = path.join(__dirname, 'dist');
+const distPath = path.join(__dirname, '..', 'tcgp-draft-frontend', 'dist');
 
 app.use(cors());
 app.use(express.static(distPath));
