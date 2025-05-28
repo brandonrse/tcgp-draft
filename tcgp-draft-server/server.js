@@ -3,6 +3,7 @@ const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
 const path = require('path');
 
 const app = express();
