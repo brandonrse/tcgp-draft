@@ -4,6 +4,7 @@ import { useCardData } from '../hooks/useCardData';
 import { getCardImageUrl } from '../services/CardService';
 import type { Card } from '../interfaces/Card';
 import type { Socket } from 'socket.io-client';
+import StatBar from './StatBar';
 
 interface DraftProps {
   settings: {
@@ -139,14 +140,32 @@ const Draft: React.FC<DraftProps> = ({
           ))}
         </ul>
         <div className="deck-container">
+
+          <div className='deck-stats'>
+            <p>Cards: {playerDecks[players[0]?.id]?.length}/30</p>
+          
+            <div className='stat-group'>
+              <strong>Pokémon: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokemon').length}</strong>
+              <div className='stat-bar-row'>
+                <StatBar label="Basics" count={playerDecks[players[0]?.id]?.filter((c) => c.stage === 'Basic').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokemon').length} />
+                <StatBar label="Stage 1" count={playerDecks[players[0]?.id]?.filter((c) => c.stage === '1').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokemon').length} />
+                <StatBar label="Stage 2" count={playerDecks[players[0]?.id]?.filter((c) => c.stage === '2').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokemon').length} />
+              </div>
+            </div>
+
+            <div className='stat-group'>
+              <strong>Trainers: {playerDecks[players[0]?.id]?.filter((c) => c.cardType !== 'Pokemon').length}</strong>
+              <div className='stat-bar-row'>
+                <StatBar label="Supporters" count={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Supporter').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType !== 'Pokemon').length} />
+                <StatBar label="Items" count={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Item').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType !== 'Pokemon').length} />
+                <StatBar label="Tools" count={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokémon Tool').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType !== 'Pokemon').length} />
+                <StatBar label="Stadiums" count={playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Stadium').length} total={playerDecks[players[0]?.id]?.filter((c) => c.cardType !== 'Pokemon').length} />
+              </div>
+            </div>
+          </div>          
           <button className="sort-button" onClick={() => sortDeck(players[0]?.id)}>
             Sort Deck
           </button>
-          <div className='deck-stats'>
-            <p>Cards: {playerDecks[players[0]?.id]?.length}/30</p>
-            <p><b>Pokémon: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Pokemon').length}</b> | Basics: {playerDecks[players[0]?.id]?.filter((c) => c.stage === 'Basic').length} | Stage 1: {playerDecks[players[0]?.id]?.filter((c) => c.stage === '1').length} | Stage 2: {playerDecks[players[0]?.id]?.filter((c) => c.stage === '2').length}</p>
-            <p><b>Trainers: {playerDecks[players[0]?.id]?.filter((c) => c.cardType !== 'Pokemon').length}</b> | Supporters: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Supporter').length} | Items: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Item').length} | Tools: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Tool').length} | Stadiums: {playerDecks[players[0]?.id]?.filter((c) => c.cardType === 'Stadium').length}</p>
-          </div>
           <div className="deck-cards">
             {playerDecks[players[0]?.id]?.map((card, index) => (
               <img

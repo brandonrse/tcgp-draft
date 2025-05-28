@@ -2,6 +2,8 @@
   display: flex;
   height: 100vh;
   flex-direction: column;
+  width: 100vw;
+  padding-bottom: 50px;
 }
 
 .player-container {
@@ -57,7 +59,7 @@ li {
 
 .deck-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 5px;
   margin-top: 10px;
   padding-top: 10px;
@@ -65,7 +67,8 @@ li {
 }
 .deck-card {
   transition: transform 0.2s;
-  width: 50px;
+  width: 70px;
+  min-width: 50px;
   height: auto;
 }
 
@@ -99,6 +102,7 @@ li {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.2s ease;
+  width: fit-content;
 }
 
 .sort-button:hover {
@@ -109,6 +113,8 @@ li {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  width: 51%;
+  margin: auto;
 }
 
 .hovered-card {
@@ -131,11 +137,6 @@ li {
 
 .header {
   text-align: center;
-}
-
-.deck-stats p {
-  margin: 0;
-  text-align: left;
 }
 
 @keyframes float {
@@ -181,4 +182,49 @@ li {
 
 .card.exit {
   animation: fly-out-right 0.6s ease-in;
+}
+
+.deck-stats {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.deck-stats p {
+  margin: 0;
+  /* text-align: left; */
+}
+
+.stat-group {
+  margin-bottom: 14px;
+}
+
+.stat-bar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 30px;
+}
+
+.stat-bar {
+  flex: 1 1 150px; 
+  min-width: 120px;
+}
+
+.bar-label {
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.bar-container {
+  background-color: #e0e0e0;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s;
 }

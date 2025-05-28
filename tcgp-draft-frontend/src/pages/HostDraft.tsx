@@ -75,8 +75,9 @@ const HostDraft: React.FC = () => {
               required
             />
           </label>
-
-          <button type="submit" disabled={isHosting}>Create Room</button>
+          {!isHosting && (
+            <button type="submit">Create Room</button>
+          )}
         </form>
       ) : (
         <div>
