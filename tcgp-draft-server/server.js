@@ -3,7 +3,6 @@ const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
-const fs = require('fs');
 const path = require('path');
 
 const app = express();
@@ -17,7 +16,6 @@ const io = new Server(server, {
   },
 });
 
-const basePath = path.join(__dirname, '..');
 console.log('Base path:', basePath);
 
 fs.readdir(basePath, (err, files) => {
@@ -40,7 +38,6 @@ fs.readdir(frontendPath, (err, files) => {
 console.log('Working directory:', process.cwd());
 
 const rateLimit = new Map();
-const distPath = path.join(__dirname, '..', 'tcgp-draft-frontend', 'dist');
 
 app.use(cors());
 app.use(express.static(distPath));
