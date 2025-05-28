@@ -11,5 +11,8 @@ export default defineConfig({
       '/rooms': 'http://localhost:3001'
     },
   },
+  build: {
+    outDir: 'dist',
+  },
   base: process.env.VITE_BASE_PATH || "/"
 })
