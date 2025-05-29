@@ -9,6 +9,7 @@ interface Settings {
   coinFlipsEnabled: boolean;
   energyGenerationEnabled: boolean;
   exsEnabled: boolean;
+  excludeTrainerCards: boolean;
 }
 
 interface SettingsPanelProps {
@@ -45,7 +46,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
     <aside className="settings-panel">
       <h3>Settings</h3>
       <ul>
-        <li>
+        <li className='settings-options'>
           {/* <div className='tooltip'>
             <label>
               <input
@@ -93,10 +94,22 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
             </label>
             <span className='tooltiptext'>Include ex Pokémon</span>
           </div>
+          <div className='tooltip'>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={settings.excludeTrainerCards}
+                  onChange={() => toggleSetting('excludeTrainerCards')}
+                />
+                Exclude Trainer Cards
+              </label>
+              <span className='tooltiptext'>Exclude Trainer cards from the expansion filter. Ex. Misty can appear even if Genetic Apex is not selected</span>
+            <br />
+          </div>
         </li>
         <li>
           <label>
-            Include Expansions:<br />
+            Expansions:<br />
             <div className="expansion-logos">
               {/* {packIds.map((id, idx) => (
                 <img

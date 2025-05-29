@@ -10,7 +10,7 @@
 }
 
 .room-container li {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   margin: 0.5rem 0;
 }
 
@@ -54,6 +54,7 @@
 }
 
 .expansion-logos {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

@@ -8,7 +8,9 @@ import { useCardData } from '../hooks/useCardData';
 import { 
   getCardsByPackIds, 
   getCardsWithoutTag,
-  getRandomPokemonCards
+  getRandomPokemonCards,
+  getCardsByCardType,
+  getAllTrainerCards
 } from '../services/CardService';
 import type { Card } from '../interfaces/Card';
 
@@ -45,6 +47,7 @@ interface Settings {
   coinFlipsEnabled: boolean;
   energyGenerationEnabled: boolean;
   exsEnabled: boolean;
+  excludeTrainerCards: boolean;
 }
 
 const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
@@ -56,6 +59,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
     coinFlipsEnabled: true,
     energyGenerationEnabled: true,
     exsEnabled: true,
+    excludeTrainerCards: false,
   });
   const [isDraftStarted, setIsDraftStarted] = useState(false); 
   const [currentPack, setCurrentPack] = useState<Card[]>([]);
@@ -136,7 +140,15 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
         console.error('Card data is not available.');
         return;
       }
+      
       let cardPool = getCardsByPackIds(cards, settings.allowedExpansions);
+      if (settings.excludeTrainerCards) {
+        let pokemonCards = getCardsByCardType(cards, 'Pokemon');
+        let filteredPokemon = getCardsByPackIds(pokemonCards, settings.allowedExpansions);
+        let trainerCards = getAllTrainerCards(cards);
+        cardPool = [...filteredPokemon, ...trainerCards];
+      }
+      
       if (!settings.coinFlipsEnabled) {
         cardPool = getCardsWithoutTag(cardPool, 'coin flips');
       }
