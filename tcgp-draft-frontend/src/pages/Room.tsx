@@ -153,7 +153,6 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
         console.log('Not enough cards were available.');
         return;
       }
-      console.log('all cards: ', randomCards);
       socket.emit('start-draft', roomId, randomCards);
     }
   };
