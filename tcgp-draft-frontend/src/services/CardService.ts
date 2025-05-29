@@ -8,6 +8,7 @@ const PACKS: Record<string, string> = {
   'Triumphant Light': 'A2a',
   'Shining Revelry': 'A2b',
   'Celestial Guardians': 'A3',
+  'Extradimensional Crisis': 'A3a',
 };
 
 // const LANG: Record<string, string> = {
@@ -112,6 +113,9 @@ export const getCardId = (card: Card): string | undefined => {
 
 export const containsType = (cards: Card[], type: string): boolean =>
   cards.some(card => card.type === type);
+
+export const containsAnyCardType = (cards: Card[], cardType: string): boolean =>
+  cards.some(card => card.cardType === cardType);
 
 export const containsAnyTool = (cards: Card[]): boolean =>
   cards.some(card => card.cardType === 'Pokémon Tool');
@@ -329,6 +333,7 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
     case 'P-A_058':
     case 'A3_068': // A3 Tapu Koko 
     case 'A3_166': 
+    case 'A3a_065': // Electrical Cord
       if (containsType(cards, 'Lightning')) {
           return true;
         }
@@ -354,16 +359,33 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
     case 'A2b_090': 
     case 'A3_066': // A3 Oricorio
     case 'A3_165': 
-
       if (containsTag(cards, 'ex')) {
         return true;
       }
       return false;
+
     case 'A1_175': // Muk
     case 'A2b_048': // A2b Clodsire ex
     case 'A2b_085':
     case 'A2b_093':
       if (containsTag(cards, 'poison')) {
+        return true;
+      }
+      return false;
+    
+    case 'A3a_031': // Claydol
+      if (containsTag(cards, 'heal')) {
+        return true;
+      }
+      return false;
+
+    case 'A3a_062': // Celesteela
+    case 'A3a_075':
+    case 'A3a_063': // Beast Wall
+    case 'A3a_066': // Beastite
+    case 'A3a_069': // Lusamine
+    case 'A3a_083':
+      if (containsTag(cards, 'ultra beast')) {
         return true;
       }
       return false;
@@ -426,7 +448,18 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
     case 'A3_151': // A3 Guzma
     case 'A3_193':
     case 'A3_208':
+    case 'A3a_037': // A3a Alolan Meowth
+    case 'A3a_073':
       if (containsAnyTool(cards)) {
+        return true;
+      }
+      return false;
+
+    case 'A3a_061': // A3a Silvally
+    case 'A3a_074':
+    case 'A3a_068': // A3a Looker
+    case 'A3a_082':
+      if (containsAnyCardType(cards, 'Supporter')) {
         return true;
       }
       return false;
@@ -565,6 +598,13 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
    case 'A3_154': // A3 Mallow 
    case 'A3_196': 
       if (containsCardName(cards, 'Shiinotic') || containsCardName(cards, 'Tsareena')) {
+        return true;
+      }
+      return false;
+
+   case 'A3a_067': // A3a Gladion
+   case 'A3a_081': 
+      if (containsCardName(cards, 'Type: Null') || containsCardName(cards, 'Silvally')) {
         return true;
       }
       return false;

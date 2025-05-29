@@ -52,7 +52,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [settings, setSettings] = useState<Settings>({
     timerEnabled: false,
-    allowedExpansions: ['A1', 'A1a', 'A2', 'A2a', 'A2b'],
+    allowedExpansions: ['A1', 'A1a', 'A2', 'A2a', 'A2b', 'A3'],
     coinFlipsEnabled: true,
     energyGenerationEnabled: true,
     exsEnabled: true,
@@ -148,6 +148,12 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
       }
   
       const randomCards = getRandomPokemonCards(cardPool, players.length * 30);
+      if (randomCards.length < players.length * 30) {
+        alert('Not enough cards were available with your selected settings.');
+        console.log('Not enough cards were available.');
+        return;
+      }
+      console.log('all cards: ', randomCards);
       socket.emit('start-draft', roomId, randomCards);
     }
   };
