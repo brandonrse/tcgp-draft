@@ -10,6 +10,7 @@ interface Settings {
   energyGenerationEnabled: boolean;
   exsEnabled: boolean;
   excludeTrainerCards: boolean;
+  shopCardsEnabled: boolean;
 }
 
 interface SettingsPanelProps {
@@ -59,6 +60,18 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
             <span className='tooltiptext'>Enable a 30 seconds timer before a random card is selected</span>
           </div>
           <br /> */}
+          <div className='tooltip'>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={settings.shopCardsEnabled}
+                  onChange={() => toggleSetting('shopCardsEnabled')}
+                />
+                Shop Cards
+              </label>
+              <span className='tooltiptext'>Include cards that are able to be obtained through the in-game shop. Ex. Professor's Research, Poké Ball...</span>
+          </div>           
+          <br />
           <div className='tooltip'>
             <label>
               <input

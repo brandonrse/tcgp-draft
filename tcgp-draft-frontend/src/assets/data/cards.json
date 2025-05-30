@@ -15,7 +15,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": ["heal"], 
+    "tags": ["heal", "shop"], 
     "generation":   0
   },
   {
@@ -34,7 +34,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": ["retreat"], "generation":   0
+    "tags": ["retreat", "shop"], "generation":   0
   },
   {
     "cardNum":       3,
@@ -52,7 +52,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": [], "generation":   0
+    "tags": ["shop"], "generation":   0
   },
   {
     "cardNum":       4,
@@ -70,7 +70,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": ["scry"], "generation":   0
+    "tags": ["scry", "shop"], "generation":   0
   },
   {
     "cardNum":       5,
@@ -88,7 +88,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": ["search"], "generation":   0
+    "tags": ["search", "shop"], "generation":   0
   },
   {
     "cardNum":       6,
@@ -106,7 +106,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": ["shuffle"], "generation":   0
+    "tags": ["shuffle", "shop"], "generation":   0
   },
   {
     "cardNum":       7,
@@ -124,7 +124,7 @@
     "rarity":       "",
     "pack":         "Promo-A",
     "subpack":      "",
-    "tags": ["draw"], "generation":   0
+    "tags": ["draw", "shop"], "generation":   0
   },
   {
     "cardNum":       8,

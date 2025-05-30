@@ -10,7 +10,8 @@ import {
   getCardsWithoutTag,
   getRandomPokemonCards,
   getCardsByCardType,
-  getAllTrainerCards
+  getAllTrainerCards,
+  getCardsByTag
 } from '../services/CardService';
 import type { Card } from '../interfaces/Card';
 
@@ -48,6 +49,7 @@ interface Settings {
   energyGenerationEnabled: boolean;
   exsEnabled: boolean;
   excludeTrainerCards: boolean;
+  shopCardsEnabled: boolean;
 }
 
 const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
@@ -60,6 +62,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
     energyGenerationEnabled: true,
     exsEnabled: true,
     excludeTrainerCards: false,
+    shopCardsEnabled: true,
   });
   const [isDraftStarted, setIsDraftStarted] = useState(false); 
   const [currentPack, setCurrentPack] = useState<Card[]>([]);
@@ -142,6 +145,12 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
       }
       
       let cardPool = getCardsByPackIds(cards, settings.allowedExpansions);
+
+      if (settings.shopCardsEnabled && !settings.allowedExpansions.includes('P-A')) {
+        let shopCards = getCardsByTag(cards, 'shop');
+        cardPool = [...shopCards, ...cardPool];
+      }
+
       if (settings.excludeTrainerCards) {
         let pokemonCards = getCardsByCardType(cards, 'Pokemon');
         let filteredPokemon = getCardsByPackIds(pokemonCards, settings.allowedExpansions);
