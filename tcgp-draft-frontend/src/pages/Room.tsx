@@ -11,7 +11,8 @@ import {
   getRandomPokemonCards,
   getCardsByCardType,
   getAllTrainerCards,
-  getCardsByTag
+  getCardsByTag,
+  getCardsByTypes
 } from '../services/CardService';
 import type { Card } from '../interfaces/Card';
 
@@ -50,6 +51,7 @@ interface Settings {
   exsEnabled: boolean;
   excludeTrainerCards: boolean;
   shopCardsEnabled: boolean;
+  allowedTypes: string[];
 }
 
 const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
@@ -63,6 +65,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
     exsEnabled: true,
     excludeTrainerCards: false,
     shopCardsEnabled: true,
+    allowedTypes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
   });
   const [isDraftStarted, setIsDraftStarted] = useState(false); 
   const [currentPack, setCurrentPack] = useState<Card[]>([]);
@@ -134,6 +137,14 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
     });
   };
 
+  const updateAllowedTypes = (type: string) => {
+    setSettings((prev) => {
+      const isSelected = prev.allowedTypes.includes(type);
+      const updatedTypes = isSelected ? prev.allowedTypes.filter((t) => t !== type) : [...prev.allowedTypes, type];
+      return {...prev, allowedTypes: updatedTypes};
+    });
+  };
+
   const startDraft = () => {
     if (settings.allowedExpansions.length === 0) {
       alert('No expansions selected.');
@@ -143,8 +154,11 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
         console.error('Card data is not available.');
         return;
       }
+
+      // Filter by energy
+      let cardPool = getCardsByTypes(cards, settings.allowedTypes);
       
-      let cardPool = getCardsByPackIds(cards, settings.allowedExpansions);
+      cardPool = getCardsByPackIds(cardPool, settings.allowedExpansions);
 
       if (settings.shopCardsEnabled && !settings.allowedExpansions.includes('P-A')) {
         let shopCards = getCardsByTag(cards, 'shop');
@@ -167,7 +181,12 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
       if (!settings.exsEnabled) {
         cardPool = getCardsWithoutTag(cardPool, 'ex');
       }
-  
+      
+      if (cardPool == undefined || cardPool?.length * 2 < players.length * 30) {
+        alert('Not enough cards were available with your selected settings.');
+        console.log('Not enough cards were available.');
+        return;
+      }
       const randomCards = getRandomPokemonCards(cardPool, players.length * 30);
       if (randomCards.length < players.length * 30) {
         alert('Not enough cards were available with your selected settings.');
@@ -207,6 +226,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
           settings={settings}
           toggleSetting={toggleSetting}
           updateAllowedExpansions={updateAllowedExpansions}
+          updateAllowedTypes={updateAllowedTypes}
         />
       )}
 

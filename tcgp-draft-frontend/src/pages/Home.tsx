@@ -42,7 +42,7 @@ const Home: React.FC = () => {
               
               <tr>
                 <td>Packs included:</td>
-                <td>Up-to-date with Celestial Guardians</td>
+                <td>Up-to-date with Extradimensional Crisis</td>
               </tr>
               <tr>
                 <td>Pool Ratios:</td>

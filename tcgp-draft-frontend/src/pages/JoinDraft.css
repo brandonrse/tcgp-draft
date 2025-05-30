@@ -4,6 +4,10 @@
   margin: auto;
 }
 
+.join-container button {
+  background-color: light-dark(#ededed, #1a1a1a);
+}
+
 .join-title {
   font-size: 2rem;
   margin-bottom: 1.5rem;

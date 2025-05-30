@@ -11,6 +11,20 @@ const PACKS: Record<string, string> = {
   'Extradimensional Crisis': 'A3a',
 };
 
+const TYPES: Record<string, string> = {
+  'Grass': '1',
+  'Fire': '2',
+  'Water': '3',
+  'Lightning': '4',
+  'Psychic': '5',
+  'Fighting': '6',
+  'Darkness': '7',
+  'Metal': '8',
+  'Dragon': '9',
+  'Colorless': '10',
+  'Fairy': '11'
+}
+
 // const LANG: Record<string, string> = {
 //   'eng': 'EN',
 // }
@@ -76,6 +90,9 @@ export const getCardsByPackIds = (cards: Card[], packIds: string[]): Card[] =>
 export const getCardsByType = (cards: Card[], type: string): Card[] =>
   cards.filter((card) => card.type === type);
 
+export const getCardsByTypes = (cards: Card[], types: string[]): Card[] =>
+  cards.filter((card) => types.includes(TYPES[card.type]));
+
 export const getCardsByGeneration = (cards: Card[], generation: number): Card[] =>
   cards.filter((card) => card.generation === generation);
 
@@ -101,6 +118,10 @@ export const getPackCode = (packName: string): string => {
 
 export const getAllPacks = (): Record<string, string> => {
   return PACKS;
+}
+
+export const getAllTypes = (): Record<string, string> => {
+  return TYPES;
 }
 
 export const getPackByCode = (packCode: string): string | undefined => {

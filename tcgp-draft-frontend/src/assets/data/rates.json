@@ -710,5 +710,86 @@
       {"super": 33.333},
       {"art": 28.571}
     ]
+  },
+   {
+    "pack": "Extradimensional Crisis",
+    "type": "normal",
+    "subpack": "",
+    "cardOne": [
+      {"common": 100}
+    ],
+    "cardTwo": [
+      {"common": 100}
+    ],
+    "cardThree": [
+      {"common": 100}
+    ],
+    "cardFour": [
+      {"crown": 0.040},
+      {"shiny super rare": 0.333},
+      {"shiny": 0.714},
+      {"immersive":0.222},
+      {"super": 0.5},
+      {"art": 2.572},
+      {"double": 1.666},
+      {"rare": 4.952},
+      {"uncommon": 89}
+    ],
+    "cardFive": [
+      {"crown": 0.160},
+      {"shiny super rare":1.333},
+      {"shiny": 2.857},
+      {"immersive":0.888},
+      {"super": 2},
+      {"art": 10.288},
+      {"double": 6.664},
+      {"rare": 19.810},
+      {"uncommon":56}
+    ]
+  },
+  {
+    "pack": "Extradimensional Crisis",
+    "type": "rare",
+    "subpack": "",
+    "cardOne": [
+      {"crown": 2.941},
+      {"shiny super rare":11.764},
+      {"shiny":29.411},
+      {"immersive":2.941},
+      {"super": 35.294},
+      {"art": 17.647}
+    ],
+    "cardTwo": [
+      {"crown": 2.941},
+      {"shiny super rare":11.764},
+      {"shiny":29.411},
+      {"immersive":2.941},
+      {"super": 35.294},
+      {"art": 17.647}
+    ],
+    "cardThree": [
+      {"crown": 2.941},
+      {"shiny super rare":11.764},
+      {"shiny":29.411},
+      {"immersive":2.941},
+      {"super": 35.294},
+      {"art": 17.647}
+    ],
+    "cardFour": [
+      {"crown": 2.941},
+      {"shiny super rare":11.764},
+      {"shiny":29.411},
+      {"immersive":2.941},
+      {"super": 35.294},
+      {"art": 17.647}
+    ],
+    "cardFive": [
+      {"crown": 2.941},
+      {"shiny super rare":11.764},
+      {"shiny":29.411},
+      {"immersive":2.941},
+      {"super": 35.294},
+      {"art": 17.647}
+    ]
   }
 ]

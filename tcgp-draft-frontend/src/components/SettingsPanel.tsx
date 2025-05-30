@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCardData } from '../hooks/useCardData';
 import './SettingsPanel.css';
-import { getAllPacks } from '../services/CardService';
+import { getAllPacks, getAllTypes } from '../services/CardService';
 
 interface Settings {
   timerEnabled: boolean;
@@ -11,21 +11,24 @@ interface Settings {
   exsEnabled: boolean;
   excludeTrainerCards: boolean;
   shopCardsEnabled: boolean;
+  allowedTypes: string[];
 }
 
 interface SettingsPanelProps {
   settings: Settings;
   toggleSetting: (key: keyof Settings) => void;
   updateAllowedExpansions: (expansion: string) => void;
+  updateAllowedTypes: (type: string) => void;
 }
 
-const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, updateAllowedExpansions }) => {
+const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, updateAllowedExpansions, updateAllowedTypes }) => {
   const { cards, loading } = useCardData();
   // const imageModules = import.meta.glob('../assets/images/expansions/*{png,jpg,jpeg,webp}', {
   //   eager: true,
   //   import: 'default',
   // }) as Record<string, string>;
   const PACKS = getAllPacks();
+  const TYPES = getAllTypes();
   // const imageUrls: string[] = Object.values(imageModules);
   // const packIds: string[] = imageUrls
   //   .map(m => m.split('/')[5].split('_')[0])
@@ -42,6 +45,10 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
   const handleExpansionClick = (url: string) => {
     updateAllowedExpansions(url); // Toggle the expansion in the allowedExpansions array
   };
+
+  const handleTypeClick = (url: string) => {
+    updateAllowedTypes(url);
+  }
 
   return (
     <aside className="settings-panel">
@@ -119,6 +126,17 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
               <span className='tooltiptext'>Exclude Trainer cards from the expansion filter. Ex. Misty can appear even if Genetic Apex is not selected</span>
             <br />
           </div>
+        </li>
+        <li>
+          <label>
+            Types:<br />
+            <div className='type-icons'>
+              {
+                Object.entries(TYPES).map(([typeName, num]) => (
+                  <img key={typeName} src={`/assets/images/energy/${num}.png`} alt={typeName} title={typeName} className={`type-icon ${settings.allowedTypes.includes(num) ? '' : 'grayscale'}`} onClick={() => handleTypeClick(num)}/>
+              ))}
+            </div>
+          </label>
         </li>
         <li>
           <label>

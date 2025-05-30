@@ -16,7 +16,7 @@
 
 .copy-button {
   margin-left: 1rem;
-  background-color: #007acc;
+  background-color: #007acc!important;
   color: white;
   border: none;
   padding: 0.4rem 0.75rem;
@@ -39,12 +39,13 @@
 
 .settings-panel {
   width: 250px; 
-  background-color: #363636; 
+  background-color: light-dark(#efedea,#363636); 
   border-right: 1px solid #ccc;
   padding: 16px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
   overflow-y: auto; 
   text-align: left;
+  color: light-dark(black, #efefec);
 }
 
 .main-content {
@@ -53,23 +54,27 @@
   overflow-y: auto; 
 }
 
-.expansion-logos {
+.expansion-logos, .type-icons {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.expansion-logo {
+.expansion-logo, .type-icon {
   width: 25px;
   cursor: pointer;
   transition: filter 0.3s ease;
 }
 
-.expansion-logo.grayscale {
+.grayscale {
   filter: grayscale(100%);
 }
 
 .room-info {
   margin-left: 10px;
+}
+
+.room-info button {
+  background-color: light-dark(#ededed, #1a1a1a);
 }
