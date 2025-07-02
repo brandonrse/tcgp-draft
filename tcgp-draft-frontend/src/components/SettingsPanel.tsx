@@ -114,6 +114,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
             </label>
             <span className='tooltiptext'>Include ex Pokémon</span>
           </div>
+          <br />
           <div className='tooltip'>
               <label>
                 <input
@@ -121,7 +122,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ settings, toggleSetting, 
                   checked={settings.excludeTrainerCards}
                   onChange={() => toggleSetting('excludeTrainerCards')}
                 />
-                Exclude Trainer Cards
+                All Trainer Cards
               </label>
               <span className='tooltiptext'>Exclude Trainer cards from the expansion filter. Ex. Misty can appear even if Genetic Apex is not selected</span>
             <br />

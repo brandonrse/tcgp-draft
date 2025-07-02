@@ -59,7 +59,7 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [settings, setSettings] = useState<Settings>({
     timerEnabled: false,
-    allowedExpansions: ['A1', 'A1a', 'A2', 'A2a', 'A2b', 'A3'],
+    allowedExpansions: ['A1', 'A1a', 'A2', 'A2a', 'A2b', 'A3', 'A3a'],
     coinFlipsEnabled: true,
     energyGenerationEnabled: true,
     exsEnabled: true,
@@ -157,8 +157,10 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
 
       // Filter by energy
       let cardPool = getCardsByTypes(cards, settings.allowedTypes);
-      
+      let trainerCards = getAllTrainerCards(cards);
+      cardPool = [...cardPool, ...trainerCards];
       cardPool = getCardsByPackIds(cardPool, settings.allowedExpansions);
+      
 
       if (settings.shopCardsEnabled && !settings.allowedExpansions.includes('P-A')) {
         let shopCards = getCardsByTag(cards, 'shop');
@@ -168,7 +170,6 @@ const Room: React.FC<{ socket: Socket }> = ({ socket }) => {
       if (settings.excludeTrainerCards) {
         let pokemonCards = getCardsByCardType(cards, 'Pokemon');
         let filteredPokemon = getCardsByPackIds(pokemonCards, settings.allowedExpansions);
-        let trainerCards = getAllTrainerCards(cards);
         cardPool = [...filteredPokemon, ...trainerCards];
       }
       

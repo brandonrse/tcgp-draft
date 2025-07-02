@@ -9,6 +9,7 @@ const PACKS: Record<string, string> = {
   'Shining Revelry': 'A2b',
   'Celestial Guardians': 'A3',
   'Extradimensional Crisis': 'A3a',
+  'Eevee Grove': 'A3b',
 };
 
 const TYPES: Record<string, string> = {
@@ -36,7 +37,11 @@ export const getCardsByName = (cards: Card[], cardName: string): Card[] =>
   cards.filter((card) => card.cardName === cardName);
 
 export const getSpeciesByName = (cards: Card[], cardName: string): Card[] => {
-  // Extract the base name by removing " ex" if it exists
+  // Extract the base name by removing " ex" if it exists unless it is Pikachu ex
+  if (cardName === 'Pikachu ex') {
+    return getCardsByName(cards, 'Pikachu ex');
+  }
+
   const baseName = cardName.toLowerCase().split(' ex')[0];
 
   // Use a regex to match the base name followed by optional " ex" or nothing
@@ -72,8 +77,13 @@ export const getAllCardsByFamily = (cards: Card[], card: Card): Card[] => {
   return Array.from(family);
 }
 
-export const getEvolutionCards = (cards: Card[], card: Card): Card[] =>
-  cards.filter((c) => c.evolvesFrom === card.cardName);
+export const getEvolutionCards = (cards: Card[], card: Card): Card[] => {
+  let cardName = card.cardName;
+  if (cardName === 'Eevee ex') {
+    cardName = 'Eevee'
+  }
+  return cards.filter((c) => c.evolvesFrom === cardName);
+}
 
 export const getPreEvolutionCards = (cards: Card[], card: Card): Card[] => 
   cards.filter((c) => c.cardName === card.cardName);
@@ -108,6 +118,8 @@ export const getCardsByTag = (cards: Card[], tag: string): Card[] =>
 export const getCardsWithoutTag = (cards: Card[], tag: string): Card[] =>
   cards.filter((card) => !card.tags.includes(tag));
 
+export const getCardsByAttack = (cards: Card[], attack: string): Card[] =>
+  cards.filter((card) => card.attacks.includes(attack));
 
 export const getAllPackNames = (cards: Card[]): string[] =>
   Array.from(new Set(cards.map((card) => card.pack)));
@@ -257,11 +269,12 @@ export const getRandomPokemonCards = (cards: Card[], num: number): Card[] => {
     }
   }
 
-  const trainerCards = getAllTrainerCards(cards);
+  let trainerCards = getAllTrainerCards(cards);
   const cardPoolLength = cardPool.length;
   let i = 0;
   do {
     const randomTrainerCard = trainerCards[getRandInt(0, trainerCards.length - 1)];
+    console.log(randomTrainerCard);
     if (randomTrainerCard.tags.includes('fossil')) { 
       continue; 
     }
@@ -278,7 +291,8 @@ export const getRandomPokemonCards = (cards: Card[], num: number): Card[] => {
       }
       i += iterations;
     }
-  } while (i < num - cardPoolLength)
+    trainerCards = trainerCards.filter(c => c.cardName !== randomTrainerCard.cardName);
+  } while (i < num - cardPoolLength && trainerCards.length > 1)
 
   const randomCardPool = shuffle(cardPool);
   return shuffle(randomCardPool) as Card[];
@@ -461,6 +475,14 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
       }
       return false;
 
+    // A3b Hau
+    case 'A3b_068':
+    case 'A3b_085':
+      if (containsCardName(cards, 'Incineroar ex') || containsCardName(cards, 'Primarina ex') || containsCardName(cards, 'Decidueye ex')) {
+        return true;
+      }
+      return false;
+
     case 'A2_111': // A2 Skarmory
     case 'P-A_39':
     case 'A2_61': // A2 Pachirisu ex
@@ -471,6 +493,8 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
     case 'A3_208':
     case 'A3a_037': // A3a Alolan Meowth
     case 'A3a_073':
+    case 'A3b_045': // A3b Purrloin
+    case 'A3b_065': // A3b Greedent
       if (containsAnyTool(cards)) {
         return true;
       }
@@ -549,7 +573,7 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
 
     // A2b Weedle
     case 'A2b_001':
-      if (containsCardId(cards, 'A2b_001')) {
+      if (getCardsByName(cards, 'Weedle').length > 1) {
         return true;
       }
       return false;
@@ -630,9 +654,29 @@ export const areConditionsSatisfied = (cards: Card[], card: Card): boolean => {
       }
       return false;
 
+    case 'A3b_066': // A3b Eevee Bag
+    case 'A3b_107': 
+      if (containsCardName(cards, 'Eevee')) {
+        return true;
+      }
+      return false;
+
+    case 'A3b_007': // A3b Appletun
+    case 'A3b_018': // A3b Vanillite
+    case 'A3b_019': // A3b Vanillish
+    case 'A3b_031': // A3b Swirlix
+    case 'A3b_032': // A3b Slurpuff
+    case 'A3b_036': // A3b Milcery
+    case 'A3b_037': // A3b Alcremie
+      if (getCardsByAttack(cards, 'Sweets Relay').length > 2) {
+        return true;
+      }
+      return false;
+    
     default:
       return true;
   }
+
 }
 
 //#endregion
