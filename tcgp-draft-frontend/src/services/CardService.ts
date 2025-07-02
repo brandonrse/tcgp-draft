@@ -274,12 +274,12 @@ export const getRandomPokemonCards = (cards: Card[], num: number): Card[] => {
   let i = 0;
   do {
     const randomTrainerCard = trainerCards[getRandInt(0, trainerCards.length - 1)];
-    console.log(randomTrainerCard);
     if (randomTrainerCard.tags.includes('fossil')) { 
       continue; 
     }
     if (cardPool.length > 0) {
       if (!areConditionsSatisfied(cardPool, randomTrainerCard)) { 
+        trainerCards = trainerCards.filter(c => c.cardName !== randomTrainerCard.cardName);
         continue; 
       }
     }
@@ -292,7 +292,7 @@ export const getRandomPokemonCards = (cards: Card[], num: number): Card[] => {
       i += iterations;
     }
     trainerCards = trainerCards.filter(c => c.cardName !== randomTrainerCard.cardName);
-  } while (i < num - cardPoolLength && trainerCards.length > 1)
+  } while (i < num - cardPoolLength && trainerCards.length > 0)
 
   const randomCardPool = shuffle(cardPool);
   return shuffle(randomCardPool) as Card[];
